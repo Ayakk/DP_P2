@@ -1,6 +1,11 @@
 package com.company;
 
+import com.company.DAO.ReizigerDAO;
+import com.company.DAO.ReizigerDAOPsql;
+import com.company.Domein.Reiziger;
+
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -9,7 +14,7 @@ public class Main {
 
 
     public static void main(String[] args) throws SQLException {
-        Connection conn = null;
+        Connection conn = DriverManager.getConnection("jdbc:postgresql:ovchip", "postgres", "TugbaK26");
         ReizigerDAOPsql reizigerDAO = new ReizigerDAOPsql(conn);
         testReizigerDAO(reizigerDAO);
     }
